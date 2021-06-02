@@ -1,12 +1,12 @@
 import React from 'react'
 import { StyleSheet, Text, View, Image } from 'react-native';
 
-const Item = ({ title, text, isActive, postedTime }) => {
+const Item = ({ title, text, isActive, postedTime, roomPic }) => {
     return (
         <View style={isActive ? styles.containerActive : styles.container}>
             <Image
                 style={styles.avatarProfile}
-                source={require('../../assets/profile.svg')}
+                source={roomPic ? roomPic : require('../../assets/profile.svg')}
             />
             <View style={isActive ? styles.messagesWrapActive : styles.messagesWrap}>
                 <Text style={isActive ? styles.titleActive : styles.title}>{title}</Text>
@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
     avatarProfile: {
         height: 64,
         width: 64,
+        borderRadius: 50
     },
     containerActive: {
         display: 'flex',

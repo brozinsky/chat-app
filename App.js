@@ -1,18 +1,22 @@
-import { StatusBar } from 'expo-status-bar'
 import React from 'react'
+import { StatusBar } from 'expo-status-bar'
+
+import { client } from './apollo'
+
 import { StyleSheet, Text, View } from 'react-native'
-import { Router, Scene } from "react-native-router-flux"
+import { ApolloProvider } from '@apollo/client/react';
 
 import Menu from './components/Menu/Menu'
 import Rooms from './components/Rooms/Rooms'
 import Chat from './components/Chat/Chat'
 
-
 export default function App() {
   return (
-    <View style={styles.body}>
-      <Chat />
-    </View>
+    <ApolloProvider client={client}>
+      <View style={styles.body}>
+        <Rooms />
+      </View>
+    </ApolloProvider>
   );
 }
 
