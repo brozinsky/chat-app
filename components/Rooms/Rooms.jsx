@@ -11,48 +11,48 @@ import { GET_MESSAGES } from '../../queries/getMessages'
 //     { title: 'The one with Remus', text: 'My parents tried everything, but in...', isActive: false, postedTime: '2h ago' }
 // ]
 
-const Rooms = ({ navigation }) => {
-    const { data: dataRooms, loading: loadingRooms } = useQuery(GET_ROOMS);
+const Rooms = ({ navigation, rooms }) => {
+    // const { data: dataRooms, loading: loadingRooms } = useQuery(GET_ROOMS);
 
-    const { loading, error, data } = useQuery(GET_MESSAGES, {
-        variables: {
-            id: 'd602a8c0-b093-424d-9393-23c620147a89'
-        },
-    });
+    // const { loading, error, data } = useQuery(GET_MESSAGES, {
+    //     variables: {
+    //         id: 'd602a8c0-b093-424d-9393-23c620147a89'
+    //     },
+    // });
 
-    const [rooms, setRooms] = React.useState(undefined);
-    const [roomsId, setRoomsId] = React.useState(undefined);
-    const [msgData, setMsgData] = React.useState(undefined);
+    // const [rooms, setRooms] = React.useState(undefined);
+    // const [roomsId, setRoomsId] = React.useState(undefined);
+    // const [msgData, setMsgData] = React.useState(undefined);
 
-    const idddd = ['d602a8c0-b093-424d-9393-23c620147a89',
-        '704da3c0-88ef-470a-9bd3-6a2714c43c1f',
-        'd602a8c0-b093-424d-9393-23c620147a89']
+    // const idddd = ['d602a8c0-b093-424d-9393-23c620147a89',
+    //     '704da3c0-88ef-470a-9bd3-6a2714c43c1f',
+    //     'd602a8c0-b093-424d-9393-23c620147a89']
 
-    React.useEffect(() => {
-        if (!loadingRooms && dataRooms) {
-            setRooms(dataRooms.usersRooms.rooms);
-        }
-    }, [loadingRooms, dataRooms])
+    // React.useEffect(() => {
+    //     if (!loadingRooms && dataRooms) {
+    //         setRooms(dataRooms.usersRooms.rooms);
+    //     }
+    // }, [loadingRooms, dataRooms])
 
-    React.useEffect(() => {
-        if (rooms) {
-            let temp = rooms.map((room) => {
-                return room.id
-            })
-            setRoomsId(temp)
-        }
-    }, [rooms])
+    // React.useEffect(() => {
+    //     if (rooms) {
+    //         let temp = rooms.map((room) => {
+    //             return room.id
+    //         })
+    //         setRoomsId(temp)
+    //     }
+    // }, [rooms])
 
 
-    React.useEffect(() => {
-        if (!loading && data) {
-            setMsgData(data);
-        }
-    }, [loading, data])
+    // React.useEffect(() => {
+    //     if (!loading && data) {
+    //         setMsgData(data);
+    //     }
+    // }, [loading, data])
 
-    if (data) {
-        console.log(data.room.messages)
-    }
+    // if (data) {
+    //     console.log(data.room.messages)
+    // }
 
 
 

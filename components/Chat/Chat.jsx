@@ -19,14 +19,15 @@ const messageData = [
     }
 ]
 
-const Chat = () => {
+const Chat = ({ messages }) => {
+
     return (
         <View style={styles.wrapper}>
             <Menu />
             <View style={styles.chatArea}>
-                {messageData.map(({ message, isUser }, index) => {
-                    return <Message isUser={isUser} message={message} key={index} />
-                })}
+                {messages ? messages.map(({ body }, index) => {
+                    return <Message isUser={false} message={body} key={index} />
+                }) : <Text>...</Text>}
             </View>
             <Panel />
         </View>

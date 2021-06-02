@@ -4,8 +4,7 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 const Panel = () => {
     return (
         <View style={styles.container}>
-            <View style={styles.input}> </View>
-
+            <View style={styles.input} />
             <Image
                 style={styles.image}
                 source={require('../../assets/send.svg')}

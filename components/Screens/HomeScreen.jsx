@@ -25,7 +25,7 @@ const HomeScreen = ({ navigation }) => {
     }, [rooms])
 
     return (
-        <Rooms navigation={navigation} />
+        <Rooms navigation={navigation} rooms={rooms} />
     );
 }
 
