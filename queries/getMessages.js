@@ -16,5 +16,3 @@ query GetMessages($id: [ID!]) {
       }
     }
 `;
-
-
