@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
 
     userTitle: {
         fontSize: 16,
-        fontWeight: 'semi-bold',
+        fontWeight: '600',
         fontFamily: 'Poppins-Bold',
         color: '#5603AD',
     },

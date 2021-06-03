@@ -17,7 +17,6 @@ const Panel = ({ itemId }) => {
                     roomId: roomId
                 }
             });
-            console.log(data)
             onChangeText("")
         }
     }

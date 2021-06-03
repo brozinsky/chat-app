@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
 
     subtitle: {
         fontSize: 14,
-        fontWeight: 'medium',
+        fontWeight: 'normal',
         color: '#fff',
         textTransform: 'capitalize'
     }

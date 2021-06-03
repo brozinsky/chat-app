@@ -46,7 +46,6 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end',
         flexGrow: 1,
         margin: 16,
-        overflowY: 'scroll'
     },
 
 });

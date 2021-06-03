@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 15,
         color: '#000',
-        fontWeight: 'medium',
+        fontWeight: 'normal',
     },
 
     isActive: {
