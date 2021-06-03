@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, View, Image } from 'react-native'
 
 const Icon = ({ src }) => {
     return (
@@ -20,12 +20,12 @@ const styles = StyleSheet.create({
         width: 44,
         height: 44,
         backgroundColor: '#fff',
-        borderRadius: 50
+        borderRadius: 50,
     },
 
     image: {
-        height: 22,
-        width: 22,
+        height: 44,
+        width: 44,
     },
 });
 

@@ -9,8 +9,10 @@ query GetMessages($id: [ID!]) {
           insertedAt
           user {
             firstName
+            lastName
             id
-            email
+            role
+            profilePic
           }
         }
       }

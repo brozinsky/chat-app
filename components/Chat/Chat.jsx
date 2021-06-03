@@ -2,7 +2,6 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native';
 import Message from './Message'
 import Panel from './Panel'
-import Menu from '../Menu/Menu'
 import { useSubscription } from '@apollo/client'
 import { MESSAGE_ADDED } from '../../queries/messageAdded'
 
@@ -25,13 +24,12 @@ const Chat = ({ messages, itemId }) => {
 
     return (
         <View style={styles.wrapper}>
-            <Menu />
             <View style={styles.chatArea}>
                 {messages ? messages.map(({ body, user }, index) => {
                     return <Message user={user} message={body} key={index} />
                 }) : <Text>...</Text>}
                 {data ?
-                    <Message user={'Sauron'} message={newMessage} />
+                    <Message user={newMessage.user} message={newMessage} />
                     : null}
             </View>
             <Panel itemId={itemId} />
@@ -42,14 +40,13 @@ const Chat = ({ messages, itemId }) => {
 const styles = StyleSheet.create({
     wrapper: {
         flexDirection: 'column',
-        height: '100vh',
-        maxHeight: '100vh',
     },
     chatArea: {
         flexDirection: 'column',
         justifyContent: 'flex-end',
         flexGrow: 1,
         margin: 16,
+        overflowY: 'scroll'
     },
 
 });

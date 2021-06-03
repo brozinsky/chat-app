@@ -5,7 +5,9 @@ const Message = ({ message, user }) => {
     return (
         <View >
             <View style={styles.whiteSpace} />
-            <Text style={user.firstName === "Sauron" ? styles.user : styles.other}>
+            <Text style={user.firstName === "Sauron"
+                ? styles.user
+                : styles.other}>
                 {message}
             </Text >
         </View>

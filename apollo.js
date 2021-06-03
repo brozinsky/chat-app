@@ -7,7 +7,6 @@ import { Socket as PhoenixSocket } from "phoenix"
 import { hasSubscription } from "@jumpn/utils-graphql"
 import { split } from "apollo-link"
 
-
 const httpLink = createHttpLink({
     uri: API_URL,
 });
