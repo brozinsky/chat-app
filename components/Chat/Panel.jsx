@@ -1,14 +1,39 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, TextInput, View, Image, TouchableHighlight } from 'react-native'
+import { useMutation } from '@apollo/client'
+import { SEND_MESSAGE } from '../../queries/sendMessage'
 
-const Panel = () => {
+const Panel = ({ itemId }) => {
+    const [text, onChangeText] = React.useState("");
+    const [sendMsg, { data }] = useMutation(SEND_MESSAGE);
+
+    const roomId = itemId.itemId
+
+    const handleSend = () => {
+        if (text != "") {
+            sendMsg({
+                variables: {
+                    body: text,
+                    roomId: roomId
+                }
+            });
+            console.log(data)
+            onChangeText("")
+        }
+    }
+
     return (
         <View style={styles.container}>
-            <View style={styles.input} />
-            <Image
-                style={styles.image}
-                source={require('../../assets/send.svg')}
+            <TextInput style={styles.input}
+                onChangeText={onChangeText}
+                value={text}
             />
+            <TouchableHighlight onPress={handleSend}>
+                <Image
+                    style={styles.image}
+                    source={require('../../assets/send.svg')}
+                />
+            </TouchableHighlight>
         </View>
     )
 }
@@ -31,7 +56,8 @@ const styles = StyleSheet.create({
         borderBottomRightRadius: 0,
         borderColor: 'transparent',
         height: 41,
-        flexGrow: 1
+        flexGrow: 1,
+        padding: 10
     },
 
     image: {

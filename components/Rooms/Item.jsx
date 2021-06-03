@@ -1,31 +1,26 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image, Button } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableHighlight } from 'react-native';
 
-const Item = ({ title, text, isActive, postedTime, roomPic, navigation, itemId }) => {
+const Item = ({ title, isActive, roomPic, navigation, itemId }) => {
+    const handlePress = () => {
+        navigation.navigate('Chat', { itemId: itemId })
+    }
+
     return (
-        <View
-            onPress={() => {
-                console.log('You tapped the button!');
-            }}
-            style={isActive ? styles.containerActive : styles.container}>
-            <Image
-                style={styles.avatarProfile}
-                source={roomPic ? roomPic : require('../../assets/profile.svg')}
-            />
-            <View style={isActive ? styles.messagesWrapActive : styles.messagesWrap}>
-                <Text style={isActive ? styles.titleActive : styles.title}>{title}</Text>
-                <Text style={isActive ? styles.messageActive : styles.message}>{itemId}</Text>
-                <Button
-                    onPress={() => navigation.navigate('Chat',
-                        { itemId: itemId }
-                    )}
-                >Press</Button>
+        <TouchableHighlight
+            onPress={handlePress}>
+            <View
+                style={isActive ? styles.containerActive : styles.container}>
+                <Image
+                    style={styles.avatarProfile}
+                    source={roomPic ? roomPic : require('../../assets/profile.svg')}
+                />
+                <View style={isActive ? styles.messagesWrapActive : styles.messagesWrap}>
+                    <Text style={isActive ? styles.titleActive : styles.title}>{title}</Text>
+                    <Text style={isActive ? styles.messageActive : styles.message}>{itemId}</Text>
+                </View>
             </View>
-
-            {/* <View style={isActive ? styles.isActive : styles.isNotActive}>
-                <Text style={isActive ? null : styles.postedTime}>{postedTime}</Text>
-            </View> */}
-        </View>
+        </TouchableHighlight>
     )
 }
 

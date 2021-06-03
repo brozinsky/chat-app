@@ -1,15 +1,21 @@
 import React from 'react'
 import { StyleSheet, Text, View, Image } from 'react-native';
 
-const Message = ({ message, isUser }) => {
+const Message = ({ message, user }) => {
     return (
-        <Text style={isUser ? styles.user : styles.other}>
-            {message}
-        </Text>
+        <View >
+            <View style={styles.whiteSpace} />
+            <Text style={user.firstName === "Sauron" ? styles.user : styles.other}>
+                {message}
+            </Text >
+        </View>
     )
 }
 
 const styles = StyleSheet.create({
+    whiteSpace: {
+        height: 16
+    },
     user: {
         backgroundColor: '#993AFC',
         borderWidth: 1,

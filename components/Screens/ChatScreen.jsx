@@ -24,8 +24,7 @@ const ChatScreen = ({ route, navigation }) => {
     // }
 
     return (
-        // <Text>{itemId}</Text>
-        <Chat itemId={itemId} messages={messages} />
+        <Chat itemId={route.params} messages={messages} />
     );
 }
 
